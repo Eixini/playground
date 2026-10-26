@@ -1,0 +1,79 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+        Width="400"
+        Height="450"
+        WindowStartupLocation="CenterScreen"
+        x:Class="TestApp.MainWindow"
+        Title="TestApp"
+        Theme="{DynamicResource CustomWindow}">
+
+	<Window.Styles >
+		<Style Selector="Button">
+			<Setter Property="Theme" Value="{DynamicResource CustomButton}"/>
+		</Style>
+	</Window.Styles>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBox Name="ResultTextBox"
+					 HorizontalAlignment="Stretch"
+					 VerticalAlignment="Stretch"
+					 FontSize="32"
+					 HorizontalContentAlignment="Right"
+					 VerticalContentAlignment="Bottom"
+					 Theme="{DynamicResource CustomTextBox}">
+                0
+            </TextBox>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Name="DeleteButton" Grid.Row="0" Grid.Column="0" Content="⮾" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Classes="topBtn"/>
+            <Button Name="ACButton" Grid.Row="0" Grid.Column="1" Content="AC" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Classes="topBtn"/>
+            <Button Name="PercentButton" Grid.Row="0" Grid.Column="2" Content="%" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Classes="topBtn"/>
+            <Button Name="DivisionButton" Grid.Row="0" Grid.Column="3" Content="÷" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Classes="rightBtn"/>
+
+            <Button Name="SevenButton" Grid.Row="1" Grid.Column="0" Content="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Name="EightButton" Grid.Row="1" Grid.Column="1" Content="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Name="NineButton" Grid.Row="1" Grid.Column="2" Content="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Name="MultiplicationButton" Grid.Row="1" Grid.Column="3" Content="X" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Classes="rightBtn"/>
+
+            <Button Name="FourButton" Grid.Row="2" Grid.Column="0" Content="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Name="FiveButton" Grid.Row="2" Grid.Column="1" Content="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Name="SixButton" Grid.Row="2" Grid.Column="2" Content="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Name="SubtractionButton" Grid.Row="2" Grid.Column="3" Content="-" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Classes="rightBtn"/>
+
+            <Button Name="OneButton" Grid.Row="3" Grid.Column="0" Content="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Name="TwoButton" Grid.Row="3" Grid.Column="1" Content="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Name="ThreeButton" Grid.Row="3" Grid.Column="2" Content="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Name="AdditionButton" Grid.Row="3" Grid.Column="3" Content="+" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Classes="rightBtn"/>
+
+            <Button Name="SignButton" Grid.Row="4" Grid.Column="0" Content="±" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Name="ZeroButton" Grid.Row="4" Grid.Column="1" Content="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Name="FractionButton" Grid.Row="4" Grid.Column="2" Content="," HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Name="EqualsButton" Grid.Row="4" Grid.Column="3" Content="=" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Classes="rightBtn"/>
+
+
+        </Grid>
+    </Grid>
+</Window>
