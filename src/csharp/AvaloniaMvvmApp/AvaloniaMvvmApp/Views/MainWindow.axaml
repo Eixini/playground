@@ -1,0 +1,244 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaMvvmApp.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaMvvmApp.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AvaloniaMvvmApp"
+        Theme="{DynamicResource CustomWindow}">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Window.Styles >
+        <Style Selector="Grid">
+        </Style>
+        
+        <Style Selector="Button">
+            <Setter Property="Theme" Value="{DynamicResource CustomButton}"/>
+        </Style>
+
+        <Style Selector="Label">
+            <Setter Property="Theme" Value="{DynamicResource CustomLabel}"/>
+        </Style>
+
+		<Style Selector="RadioButton">
+			<Setter Property="Theme" Value="{DynamicResource CustomRadioButton}"/>
+		</Style>
+
+		<Style Selector="CheckBox">
+			<Setter Property="Theme" Value="{DynamicResource CustomCheckBox}"/>
+		</Style>
+    </Window.Styles>
+
+    <ScrollViewer>
+        
+        <StackPanel>
+            <!--Блок кода, по нажатию кнопок меняется текст -->
+            <Border
+                Classes="blockGridBorder">
+                <Grid
+                    Classes="blockGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                
+                    <Label
+                        Grid.Row="0"
+                        Content="{Binding LabelTwoButtons}"/>
+                    <Button
+                        Grid.Row="1"
+                        Content="{Binding YesButton}"
+                        Command="{Binding YesButtonClickCommand}"/>
+                    <Button
+                        Grid.Row="2"
+                        Content="{Binding NoButton}"
+                        Command="{Binding NoButtonClickCommand}"/>
+                </Grid>
+            </Border>
+            
+            <!-- Блок с 3 радиокнопками -->
+            <Border
+                Classes="blockGridBorder">
+                <Grid
+                Classes="blockGrid">
+                    <StackPanel>
+                        <Label
+                            Content="{Binding SelectedTextRB}"/>
+                        <RadioButton
+                            Content="{Binding RadioButton1}"
+                            GroupName="RB"
+                            IsChecked="{Binding IsOption1}"/>
+                        <RadioButton
+                            Content="{Binding RadioButton2}"
+                            GroupName="RB"
+                            IsChecked="{Binding IsOption2}"/>
+                        <RadioButton
+                            Content="{Binding RadioButton3}"
+                            GroupName="RB"
+                            IsChecked="{Binding IsOption3}"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            
+            <!-- Блок с 3 чекбоксами -->
+            <Border
+                Classes="blockGridBorder">
+
+                <Grid
+                    Classes="blockGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel
+                        Grid.Column="0">
+                        <CheckBox
+                            Content="{Binding CheckBox1}"
+                            IsChecked="{Binding IsCheckBox1}"/>
+                        <CheckBox
+                            Content="{Binding CheckBox2}"
+                            IsChecked="{Binding IsCheckBox2}"/>
+                        <CheckBox
+                            Content="{Binding CheckBox3}"
+                            IsChecked="{Binding IsCheckBox3}"/>
+                    </StackPanel>
+                    <StackPanel
+                        Grid.Column="1">
+                        <Label Content="{Binding CheckBoxLabel1}"/>
+                        <Label Content="{Binding CheckBoxLabel2}"/>
+                        <Label Content="{Binding CheckBoxLabel3}"/>
+                    </StackPanel>
+                </Grid>
+                
+            </Border>
+
+            <!-- ToggleButton и ToggleSwitch -->
+            <Border
+                Classes="blockGridBorder">
+
+                <Grid
+                    Classes="blockGrid">
+                    <StackPanel>
+                        <ToggleButton
+                            Content="{Binding ToggleButton}"
+                            Command="{Binding ToggleButtonClickCommand}"/>
+                        <ToggleSwitch/>
+                    </StackPanel>
+                </Grid>
+
+            </Border>
+
+            <!-- TextBox -->
+            <Border
+                Classes="blockGridBorder">
+
+                <Grid
+                    Classes="blockGrid">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+					<TextBox
+                        Grid.Column="0"
+                        Text="{Binding TextBoxContent}">
+						<Interaction.Behaviors>
+							<EventTriggerBehavior EventName="TextChanged">
+								<InvokeCommandAction Command="{Binding TextBoxChangedHandlerCommand}" />
+							</EventTriggerBehavior>
+						</Interaction.Behaviors>
+
+					</TextBox>
+                    <Button
+                        Grid.Column="1"
+                        Content="{Binding ActionButton}"
+                        Command="{Binding ActionButtonClickCommand}"/>
+					<Label
+						Grid.Column="2"
+                        Content="{Binding TextEditLabel}"/>
+                    
+                </Grid>
+                
+            </Border>
+
+
+            <!-- ComboBox -->
+            <Border
+            Classes="blockGridBorder">
+
+                <Grid
+                Classes="blockGrid">
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox
+							ItemsSource="{Binding ColorList}"/>
+						<ComboBox
+							ItemsSource="{Binding ShapeList}"/>
+						<TextBox Text="{Binding ComboBoxTextBox}"/>
+						<Button
+							Command="{Binding AddShapeCommand}"
+							Content="+"/>
+						<Button
+							Command="{Binding RemoveShapeCommand}"
+							Content="-"/>
+                    </StackPanel>
+                </Grid>
+                
+            </Border>
+
+            <!-- ListBox -->
+            <Border
+            Classes="blockGridBorder">
+
+                <Grid
+                Classes="blockGrid">
+                    <StackPanel>
+                        <ListBox
+							ItemsSource="{Binding CatList}"/>
+                    </StackPanel>
+                </Grid>
+
+            </Border>
+
+            <!-- DataGrid -->
+            <Border
+            Classes="blockGridBorder">
+                
+                <Grid
+                Classes="blockGrid">
+                    <DataGrid
+						ItemsSource="{Binding Persons}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+								Header="Name"
+								Width="*"
+								Binding="{Binding Name}"/>
+                            <DataGridTextColumn
+								Header="Nickname"
+								Width="*"
+								Binding="{Binding Nickname}"/>
+                            <DataGridTextColumn
+								Header="Description"
+								Width="5*"
+								Binding="{Binding Description}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                
+            </Border>
+
+        </StackPanel>
+        
+    </ScrollViewer>
+
+</Window>

@@ -1,0 +1,76 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ControlTheme
+        x:Key="CustomWindow"
+        TargetType="Window"
+        BasedOn="{StaticResource {x:Type Window}}">
+		
+        <Setter Property="Background" Value="#474A51"/>
+		
+    </ControlTheme>
+
+	<ControlTheme
+	    x:Key="{x:Type Border}"
+	    TargetType="Border">
+
+		<Style Selector="^.blockGridBorder">
+			<Setter Property="Background" Value="#34D2AF"/>
+			<Setter Property="BorderBrush" Value="Black"/>
+			<Setter Property="CornerRadius" Value="15"/>
+			<Setter Property="Margin" Value="10"/>
+			<Setter Property="Padding" Value="10"/>
+			<Setter Property="BorderThickness" Value="3"/>
+		</Style>
+		
+	</ControlTheme>
+
+	<ControlTheme
+		x:Key="CustomButton"
+        TargetType="Button"
+        BasedOn="{StaticResource {x:Type Button}}">
+		
+		<Setter Property="Background" Value="#474A51"/>
+		<Setter Property="Foreground" Value="White"/>
+		
+	</ControlTheme>
+
+	<ControlTheme
+		x:Key="CustomRadioButton"
+		TargetType="RadioButton"
+		BasedOn="{StaticResource {x:Type RadioButton}}">
+
+		<Setter Property="Foreground" Value="#474A51"/>
+
+	</ControlTheme>
+
+	<ControlTheme
+	x:Key="CustomCheckBox"
+	TargetType="CheckBox"
+	BasedOn="{StaticResource {x:Type CheckBox}}">
+
+		<Setter Property="Foreground" Value="#474A51"/>
+
+	</ControlTheme>
+
+	<ControlTheme
+		x:Key="CustomLabel"
+		TargetType="Label"
+		BasedOn="{StaticResource {x:Type Label}}">
+
+		<Setter Property="Foreground" Value="#474A51"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+
+	</ControlTheme>
+	
+    <ControlTheme
+        x:Key="{x:Type Grid}"
+        TargetType="Grid">
+        
+
+        <Style Selector="^.blockGrid">
+			<Setter Property="Background" Value="#34D2AF"/>
+        </Style>
+    </ControlTheme>
+    
+</ResourceDictionary>
